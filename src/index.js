@@ -27,7 +27,7 @@ import raquelPicPng from './img/bg-video-fundo-imobiliario.png'
 
 //simulator
 import './styles/simulator.css'
-import './simulator'
+import simulator from './simulator'
 
 //video section
 import './styles/video.css'
@@ -49,9 +49,12 @@ import footer from './footer'
 import seloPng from './img/selo-footer-anbima.png'
 // import seloWebp from './img/webp/selo-footer-anbima.webp'
 
+//scripts
 import makeImage from './scripts/makeImage'
 // import makeVideo from './scripts/makeVideo'
 // import makeWebp from './scripts/makeWebp'
+import makeRows from './scripts/makeRows'
+import makeButton from './scripts/makeButton'
 
 //hero gif
 const heroGif = makeImage(cellGif, 'cellphone')
@@ -81,4 +84,18 @@ footer.innerHTML = anbimaPng
 //const anbimaWebp = makeWebp(seloWebp)
 // footer.innerHTML = anbimaWebp
 
+const button = makeButton('click me')
+simulator.appendChild(button)
 
+const numbers = [1,2,3,4,5]
+
+button.addEventListener('click', e => {
+    const rows = makeRows()
+    const newDiv = document.createElement('div')
+    simulator.appendChild(newDiv)
+    newDiv.innerHTML = rows
+    const shuffled = _.shuffle(numbers)
+    shuffled.forEach(n => {
+        newDiv.appendChild(makeButton(n))
+    })
+})
