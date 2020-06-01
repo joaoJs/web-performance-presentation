@@ -1,0 +1,8 @@
+nav,
+section,
+footer {
+    width: 100vw;
+    text-align: center;
+    font-size: 32px;
+    padding: 20px;
+}
