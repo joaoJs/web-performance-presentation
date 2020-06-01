@@ -17,17 +17,6 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
       module: {
         rules: [
           {
-            test: /\.jpe?g$/,
-            use: [
-              {
-                loader: "url-loader",
-                options: {
-                  limit: 5000
-                }
-              }
-            ]
-          },
-          {
             test: /\.(png|jpe?g|gif|webp|webm|mp4)$/i,
             exclude: /node_modules/,
             loader: 'file-loader',
