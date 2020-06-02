@@ -1,6 +1,6 @@
 //libs
-import _ from 'lodash'
-//const getLodash = () => import('lodash')
+// import _ from 'lodash'
+const getLodash = () => import('lodash')
 import '../node_modules/bootstrap-4-grid/css/grid.css'
 
 //styles
@@ -90,27 +90,27 @@ simulator.appendChild(button)
 
 const numbers = [1,2,3,4,5]
 
-button.addEventListener('click', e => {
-    const rows = makeRows()
-    const newDiv = document.createElement('div')
-    simulator.appendChild(newDiv)
-    newDiv.innerHTML = rows
-    const shuffled = _.shuffle(numbers)
-    shuffled.forEach(n => {
-        newDiv.appendChild(makeButton(n))
-    })
-})
-
 // button.addEventListener('click', e => {
 //     const rows = makeRows()
 //     const newDiv = document.createElement('div')
 //     simulator.appendChild(newDiv)
 //     newDiv.innerHTML = rows
-//     getLodash().then(_ => {
-//         // console.log(_)
-//         const shuffled = _.shuffle(numbers)
-//         shuffled.forEach(n => {
-//             newDiv.appendChild(makeButton(n))
-//         })
+//     const shuffled = _.shuffle(numbers)
+//     shuffled.forEach(n => {
+//         newDiv.appendChild(makeButton(n))
 //     })
 // })
+
+button.addEventListener('click', e => {
+    const rows = makeRows()
+    const newDiv = document.createElement('div')
+    simulator.appendChild(newDiv)
+    newDiv.innerHTML = rows
+    getLodash().then(_ => {
+        // console.log(_)
+        const shuffled = _.shuffle(numbers)
+        shuffled.forEach(n => {
+            newDiv.appendChild(makeButton(n))
+        })
+    })
+})
